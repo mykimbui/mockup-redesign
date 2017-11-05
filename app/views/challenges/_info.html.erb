@@ -1,0 +1,83 @@
+<div class="normalpadding">
+<div class="row lilpad toppadding">
+  <div class="col-xs-6">
+    <h4>Opening hours</h4>
+  </div>
+  <div class="col-xs-6">
+   <p><%= @challenge.openinghours %></p>
+ </div>
+</div>
+<hr>
+<!-- <div class="row lilpad">
+  <div class="col-xs-6">
+    <h4>Location</h4>
+  </div>
+  <div class="col-xs-6">
+  <p><span id="total-distance"></span> away</p>
+ </div>
+</div>
+<hr> -->
+
+<div class="row lilpad">
+  <div class="col-xs-6">
+    <h4>Cost</h4>
+  </div>
+  <div class="col-xs-6">
+    <% if @challenge.cost == 0 %>
+    <p>FREE</p>
+    <% elsif @challenge.cost == 1 %>
+    <p>Cheap</p>
+    <% elsif @challenge.cost == 2 %>
+    <p>Affordable</p>
+    <% else @challenge.cost == 3 %>
+    <p>Expensive</p>
+    <% end %>
+  </div>
+</div>
+<hr>
+
+<!-- <div class="row lilpad">
+  <div class="col-xs-6">
+    <h4>Wifi available</h4>
+  </div>
+  <div class="col-xs-6">
+    <%#= link_to "#js-wifi", "data-toggle" => "modal" do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M5 11.55a11 11 0 0 1 14.08 0M1.41 8a16 16 0 0 1 21.17 0M8.52 15.11a6 6 0 0 1 6.95 0"/>
+      <line x1="12" y1="19" x2="12" y2="19"/>
+    </svg>
+
+    <%# end %>
+    <div id="js-wifi" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+           <button type="button" class="close" data-dismiss="modal">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"/>
+              <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+          </button>
+          <h4 class="modal-title"><strong>Some wifi around this challenge</strong></h4>
+        </div>
+        <div class="modal-body">
+          <h3>EXKi De Brouckère - place de Brouckère </h3>
+          <p>Name: Exki De Brouckère - Password: 4262EXKI</p>
+
+          <h3>Fortis Brussels - rue de la Chancellerie, 11</h3>
+          <p>Name: Fortis298 - Password: 426FORTISH</p>
+
+          <h3>McDonald's - place de la Bourse, 3 </h3>
+          <p>Name: McDo_PlB - Password: jsjsh7282hh</p>
+
+          <h3>Java Coffee - rue Neuve, 123</h3>
+          <p>Name: Java_Coffee_Wifi - Password: 42IHJDHZ9</p>
+
+          <h3>AB Café/Resto - rue des Pierres, 23 </h3>
+          <p>Name: ABcafeBXL - Password: 4kej983982I</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+</div>

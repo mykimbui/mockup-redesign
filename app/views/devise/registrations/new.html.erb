@@ -1,0 +1,31 @@
+<div class="content">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+      <div class="text-center">
+        <%= render "shared/logo" %>
+      </div>
+      <h6>You need to create an account to start a trip. That way you can track all your trips.</h6>
+
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), defaults: { input_html: { class: 'input-container' } }) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs login-input">
+        <%= f.input :first_name, required: true, label: 'First name', wrapper: :p_wrapper %>
+        <%= f.input :last_name, required: true, label: 'Last name', wrapper: :p_wrapper %>
+        <%= f.input :email, required: true, label: 'Email', autofocus: true, wrapper: :p_wrapper %>
+        <%= f.input :password, required: true, label: 'Password', hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), wrapper: :p_wrapper %>
+        <%= f.input :password_confirmation, label: 'Confirmation',required: true, wrapper: :p_wrapper %>
+      </div>
+
+      <div class="row form-actions topperpadding">
+        <div class="col-xs-8">
+          <%= render "devise/shared/links" %>
+        </div>
+        <div class="col-xs-4 right nopaddingleft">
+          <%= f.button :submit, "Sign up", class: "btn-main" %>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>

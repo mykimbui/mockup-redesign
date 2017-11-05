@@ -1,0 +1,21 @@
+<% if user %>
+
+<ul class="list-inline">
+ <li><% if user.facebook_picture_url.nil? %>
+  <% if user.profile_picture.present?  %>
+  <%= image_tag user.profile_picture, class: "avatar", crop: :fill %>
+  <% else %>
+  <%= image_tag("default.png", class: "avatar") %>
+  <% end %>
+  <% else %>
+  <%= image_tag user.facebook_picture_url, class: "avatar", crop: :fill %>
+  <% end %></li>
+  <li> <p> <%= user.first_name.capitalize %> <%= user.last_name.capitalize %>, <%= user.email %> </p></li>
+</ul>
+<% elsif email %>
+<ul class="list-inline">
+  <li><%= image_tag("default.png", class: "avatar") %></li>
+  <li><p><%= email %>, <i class="fa fa-envelope-o"></i></p></li>
+</ul>
+<% end %>
+

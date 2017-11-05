@@ -1,0 +1,88 @@
+body.pages_controller {
+  background-color : #F7F6F6;
+}
+
+.innerpadding {
+  padding-left: 50px;
+  padding-right: 50px;
+}
+
+.home-banner {
+  width: 50%;
+  height: 100vh;
+  position: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.home {
+  .list-inline > li {
+    display: inline-block;
+    padding-left: 40px;
+    padding-right: 5px;
+  }
+}
+
+.paddedi {
+  padding-top: 3em;
+}
+.littop {
+  padding-top: 100px;
+}
+
+.bottomshit {
+  padding-bottom: 100px;
+}
+.paddinglol {
+  padding-top: 30px;
+}
+
+.img-home {
+  width: 350px;
+}
+
+.abs {
+  position: absolute;
+}
+
+.verylilpad {
+  margin: 80px 0 100px;
+}
+
+
+.padicon {
+  padding-bottom: 20px;
+  fill: #343851;
+}
+
+.home-title {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 800;
+  letter-spacing: 0.225px;
+  color: #343851;
+  font-family: 'Roboto', sans-serif;
+}
+
+.text-home {
+  font-size: 16px;
+  line-height: 28.8px;
+  font-weight: 300;
+  letter-spacing: normal;
+  color: #696c7b;
+  font-family: 'Roboto', sans-serif;
+}
+
+.smaller {
+  width: 90px;
+}
+
+.bg-blue {
+  // background-color: $lightblue;
+}
+
+@media screen and (min-width: 480px) {
+ .side-pad {
+  padding: 0 300px 0 100px;
+}
+}

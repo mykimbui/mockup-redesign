@@ -1,0 +1,80 @@
+<% content_for :head do %>
+<style>
+  body {
+    background-color: #F7F6F6;
+  }
+</style>
+<% end %>
+
+<div class="row">
+  <div class="col-sm-6 col-md-6 hidden-xs ">
+    <div class="home-banner" style="background-image: url('<%= image_path "tripin-home.jpg" %>'); top:0; z-index: 10;"></div>
+  </div>
+
+  <div class="col-sm-6 col-md-6 col-xs-12 side-pad">
+
+    <div class="content padded innerpadding home">
+      <div class="smaller paddinglol"><%= render "shared/logo" %></div>
+      <div class="homehead paddinglol">Challenge the way </br> you travel</div>
+
+      <div class="paddedi text-home">Tripin makes citytrips with your friends fun and exciting by giving you a list of challenges to complete.</div>
+
+      <div class="verylilpad">
+        <%= link_to "START A NEW TRIP",  new_team_path, class: "btn-main" %>
+      </div>
+      <%#= image_tag "tripin-illu-home.png", class: "img-home"%>
+      <div class="bg-blue">
+        <div class="row">
+          <div class="smaller padicon"><%= render "shared/monkey" %></div>
+          <div class="home-title">What type of challenges ?</div>
+          <div class="text-home paddinglol">Let’s keep a bit of suspense…
+            We will just tell you that the challenges will lead you to talk to local people, make crazy pictures, answer riddles… and of course, laugh a lot !</div>
+          </div>
+          <div class="row">
+            <div class="smaller padicon littop"><%= render "shared/travel" %></div>
+            <div class="home-title">How it works ?</div>
+            <div class="text-home paddinglol">You just need to choose the city you are going to visit, pick your dates and travel buddies then you will get a list of challenges to accomplish.</div>
+          </div>
+
+          <div class="row">
+            <div class="smaller littop padicon"><%= render "shared/passport" %></div>
+
+            <div class="home-title">Can everyone participate ?</div>
+            <div class="text-home paddinglol">Yes of course !
+              Tripin especially is made for groups of friends and families.</div>
+            </div>
+
+            <div class="row">
+              <div class="smaller littop padicon"><%= render "shared/photo" %></div>
+
+
+              <div class="home-title">Is it free ?</div>
+              <div class="text-home paddinglol">Of course, it’s totally free !</div>
+            </div>
+            <div class="row">
+              <div class="smaller littop padicon"><%= render "shared/cocktail" %></div>
+
+              <div class="home-title">What do I win ?</div>
+              <div class="text-home paddinglol">When you succeed in accomplishing a challenge you can get free gifts or discounts at shops, museums, bars, restaurants and many other places !</br>Try it ! (Coming soon)</div>
+            </div>
+          </div>
+
+          <ul class="row littop innerpadding list-inline">
+
+            <li><a style="color: #3b5998;" href="https://www.facebook.com/tripin.city"><i class="fa fa-3x fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a style="color: #d047d1;" href="https://www.instagram.com/tripincity"><i class="fa fa-3x fa-instagram" aria-hidden="true"></i></a></li>
+
+          </ul>
+
+          <div class="row">
+            <div class="home-title littop">Who are we ?</div>
+            <div class="text-home paddinglol bottomshit">Two girls who love travelling and gaming. We are making this app to share our experiences and change the way we visit a country.</br>
+            Don’t hesitate to contact us, give us advices or if you just want to say hello !
+            <a style="color: #143673;" href="mailto:contact@tripin.city">contact@tripin.city</a>
+            </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>

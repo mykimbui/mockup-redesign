@@ -1,0 +1,7 @@
+<div class="img-memories">
+ <%= cl_image_tag team_answer.picture, crop: :fill, class: "img-mem" %>
+ <ul class="list-inline allaroundpad flexing">
+   <li><p><%= team_answer.created_at.strftime("%d %B %Y") %></p></li>
+   <li><%= social_share_button_tag(team_answer.picture) %></li>
+ </ul>
+</div>

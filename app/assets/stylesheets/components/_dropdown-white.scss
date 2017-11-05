@@ -1,0 +1,52 @@
+.styled-input-white {
+  * {
+    // margin: 0;
+    // padding: 0;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+  }
+
+  /* Select style here */
+
+  .disable-form-control {
+    border: none;
+    box-shadow: none;
+    transition: all .2s;
+    border-radius: 0px;
+    background-color: #f1f3f3;
+    border-bottom: 1px solid #5e676e;
+  }
+
+  select {
+    margin: 0 auto;
+    color: $middleblue;
+    width: 310px;
+    padding: 22px;
+    height: 50px;
+    cursor: pointer;
+    font-size: 15px;
+  }
+
+  select:hover {
+    background-color: transparent;
+    color: $middleblue;
+    padding: 22px 0px 15px 0px;
+  }
+
+  select option {
+    background-color: white;
+    color: $middleblue;
+    width: 310px;
+    padding: 10px 15px;
+    height: 40px;
+    cursor: pointer;
+  }
+
+  select option:hover {
+    color: $middleblue;
+  }
+
+}

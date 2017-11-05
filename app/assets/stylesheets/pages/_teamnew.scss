@@ -1,0 +1,44 @@
+.createanew {
+  h1 {
+    font-family: 'Cabin', sans-serif;
+    color: #143673;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-size: 10px;
+    line-height: 17px;
+    color: $lightblue;
+    margin: 0 -2px 6px;
+  }
+
+  padding: 20px 40px;
+
+  li {
+    padding-left: 0px;
+  }
+
+  .list-inline {
+    padding-top: 15px;
+  }
+}
+
+.circle {
+  height: 7px;
+  width: 7px;
+  border-radius: 50px;
+  background-color: $gray;
+}
+
+.circleon {
+  background-color: $lightblue;
+}
+
+.flexing {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paddened {
+  padding: 25px 40px;
+}

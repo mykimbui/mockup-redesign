@@ -1,0 +1,12 @@
+<!-- for admin only: update or download the challenge picture-->
+<div>
+ <% if current_user.admin? %>
+ <%= simple_form_for [@team, @challenge], url:  team_challenge_path(@team, @challenge) do |c| %>
+ <%= c.input :picture %>
+ <%= c.input :picture_cache, as: :hidden %>
+
+ <%= c.button :submit %>
+ <% end %>
+
+ <% end %>
+</div>

@@ -1,0 +1,30 @@
+<div class="ongoing">
+  <% @team_challenges_not_answered.each do |team_challenge| %>
+  <div class="col-xs-12 col-sm-4">
+    <%= render "cardchallenges", team_challenge: team_challenge %>
+  </div>
+  <% end %>
+  <% @team_challenges_not_completed.each do |team_challenge| %>
+  <div class="col-xs-12 col-sm-4">
+
+    <%= render "cardchallenges", team_challenge: team_challenge %>
+  </div>
+
+  <% end %>
+  <% @team_challenges_pending.each do |team_challenge| %>
+  <div class="col-xs-12 col-sm-4">
+
+    <%= render "cardchallenges", team_challenge: team_challenge %>
+  </div>
+
+  <% end %>
+</div>
+<div class="completed">
+  <% @team_challenges_completed.each do |team_challenge| %>
+  <div class="col-xs-12 col-sm-4">
+
+    <%= render "cardchallenges", team_challenge: team_challenge %>
+  </div>
+
+  <% end %>
+</div>

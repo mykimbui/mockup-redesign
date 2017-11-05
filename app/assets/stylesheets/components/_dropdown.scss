@@ -1,0 +1,50 @@
+.styled-input {
+  * {
+    // margin: 0;
+    // padding: 0;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+  }
+
+  /* Select style here */
+
+  .disable-form-control {
+  border: none;
+  box-shadow: none;
+  transition: all .2s;
+  border-radius: 0px;
+  background-color: #f1f3f3;
+  border-bottom: 1px solid #5e676e;
+  }
+
+
+
+  select {
+    margin: 0 auto;
+    color: #343851;
+    padding: 0 0 20px 0;
+    height: 60px;
+    font-size: 55px;
+    cursor: pointer;
+  }
+
+  select:hover {
+    background-color: transparent;
+    color: #343851;
+  }
+
+  select option {
+    background-color: transparent;
+    color: #343851;
+    width: 310px;
+    height: 60px;
+    cursor: pointer;
+  }
+
+  select option:hover {
+    color: #343851;
+  }
+}

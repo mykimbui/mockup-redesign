@@ -1,0 +1,35 @@
+.bottommenupquestion {
+  height: 50px;
+  padding: 6px;
+  color: $middleblue;
+  background-color: white;
+  // background-image: linear-gradient(130deg, #5d95fc 0%, #f68084 100%);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  line-height: 15px;
+  // border-top: 0.5px solid #CCC;
+}
+
+.headline {
+  padding: 18px 18px;
+}
+
+.whitening {
+ background-color: white;
+ padding-bottom: 36px;
+}
+
+.challengeshow {
+  .tab h3 {
+    padding: 12px 0px;
+  }
+  .active h3 {
+    border-bottom: 2px solid $pink;
+    color: $pink;
+  }
+}
+
+.hinted {
+  color: $lightblue;
+}

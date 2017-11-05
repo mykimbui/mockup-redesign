@@ -1,0 +1,25 @@
+<div class="tab-content hidden" id="memories">
+ <div class="row row-no-padding">
+   <div class="col-xs-12 blue-bg centering">
+     <div class="abitpads">
+       <h1 class="title">Memories</h1>
+     </div>
+   </div>
+   <div class="content">
+     <% if @team_answers.empty? %>
+     <h5 class="pushtobottom text-center">You don't have any memories yet ! <br> Go and play some challenges !</h5>
+     <% else %>
+     <div class="topper">
+       <% @team_answers.each do |team_answer| %>
+       <% unless team_answer.picture.file.nil? %>
+       <div class="col-xs-12 col-sm-3">
+         <%= render "memory", team_answer: team_answer %>
+       </div>
+       <% end %>
+       <% end %>
+     </div>
+     <% end %>
+   </div>
+   <div class="middlemargin"></div>
+ </div>
+</div>

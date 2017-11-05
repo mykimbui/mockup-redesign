@@ -1,0 +1,28 @@
+<%= link_to team_path(@team), class: "upthere" do %>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="15 18 9 12 15 6"/>
+</svg>
+<% end %>
+<div class="col-xs-12 blue-bg centering">
+ <h1 class="title  abitpads">Add travel buddies</h1>
+</div>
+
+<div class="content">
+  <%= simple_form_for @member , url: team_members_path(@team), method: :post, remote: true, defaults: { input_html: { class: 'input-container animation-collor' } } do |f| %>
+  <%= f.input :email, placeholder: "Enter the email of your travel buddy", label: 'Email of your travel buddy', wrapper: :p_wrapper %>
+  <div class="topspace">
+    <%= f.button :submit, 'ADD', class: "btn-circled" %>
+    <% end %>
+  </div>
+
+  <div class="links">
+    <div class="liltopspace">
+      <ul class="members-list list-unstyled" >
+        <li>
+          <%#= link_to "", team_member_path(@team, @member), method: :delete, class: "fa fa-trash" %></li>
+        </ul>
+      </div>
+    </div>
+    <div class="right">
+    <%= link_to 'DONE', team_path(@team), class: "btn-main"  %></div>
+  </div>

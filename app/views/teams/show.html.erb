@@ -1,0 +1,159 @@
+<div class="upthereyo text-center">
+  <ul class="list-inline">
+    <li><b><%#= @team.city.name.upcase %></b></li>
+    <li><h5><%#= @team.start_date.strftime("%d")%><!-- <i class="fa fa-long-arrow-right" aria-hidden="true"></i> -->
+      <%#= @team.end_date.strftime("%d-%m") %></h5></li>
+    </ul>
+  </div>
+
+  <div class="uppin">
+    <%= render "endcard" %>
+  </div>
+
+  <div class="container toptoptop">
+    <div class="tab-content" id="challenges">
+     <% if @team.in_trip? %>
+     <div class="row blue-bg">
+      <h1 class="title"> Challenges with </h1>
+      <div class="marginlefting">
+        <% @team.members.each do |member| %>
+        <%#= render "card", member: member %>
+        <% if member.user.facebook_picture_url.nil? %>
+        <% if member.user.profile_picture.present?  %>
+        <%= cl_image_tag member.user.profile_picture, class: "avatar", crop: :fill %>
+        <% else %>
+        <%= image_tag("default.png", class: "avatar") %>
+        <% end %>
+        <%else %>
+        <%= image_tag member.user.facebook_picture_url, class: "avatar", crop: :fill %>
+        <% end %>
+        <%= link_to "", user_path(member.user.id), class: "team-link" %>
+        <% end %>
+        <%= link_to image_tag("addmember.png", width: "30px"), new_team_member_path(@team), {class: "btn-add-member"} %>
+      </div>
+      <h1 class="title"> and your total score is <%= @total_score %></h1>
+    </div>
+
+<!--       <div class="row">
+       <div class="col-xs-3 lililpad">
+         <a id="ongoing"><h3>ONGOING</h3></a>
+       </div>
+       <div class="col-xs-9">
+         <a id="completed"><h3>COMPLETED</h3></a>
+       </div>
+     </div> -->
+
+     <div class="row toptoppadding">
+       <%= render "listofchallenges" %>
+       <div class="col-xs-12 text-center">
+         <h1>No more challenge, <br> have an idea ?</h1>
+         <div class="text-home middlemargin">Share it with us and we'll add it to the list!</div>
+       </div>
+     </div>
+   </div>
+   <% end %>
+
+   <div class="tab-content hidden" id="mappy">
+     <div class="row row-no-padding">
+       <div class="col-xs-12">
+        <%= render "challenges/map" %>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content hidden" id="memories">
+   <div class="row row-no-padding">
+     <div class="col-xs-12 blue-bg centering">
+       <div class="abitpads">
+         <h1 class="title">Memories</h1>
+       </div>
+     </div>
+     <div class="content">
+       <% if @team_answers.empty? %>
+       <div class="text-center">
+<!--        <div class="smaller" style="fill: #343851;"><%#= render "shared/pinwheel" %></div>
+ -->       <div class="pushtobottom home-title">You don't have any memories yet ! <br> Go and play some challenges !</div>
+       </div>
+       <% else %>
+       <div class="toppiepie">
+         <% @team_answers.each do |team_answer| %>
+         <% unless team_answer.picture.file.nil? %>
+         <div class="col-xs-12 col-sm-3">
+           <%= render "memory", team_answer: team_answer %>
+         </div>
+         <% end %>
+         <% end %>
+       </div>
+       <% end %>
+     </div>
+     <div class="middlemargin"></div>
+   </div>
+ </div>
+
+
+
+ <div class="row bottommenu" id="bottom">
+  <div class="col-xs-4">
+    <a class="tab active" data-target="#challenges">
+      <ul class="list-unstyled text-center">
+       <li> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </svg></li>
+      <li>CHALLENGES</li><%#= link_to "", team_challenges_path(@team), method: :get, class: "btn-main" %>
+    </a>
+  </ul>
+</div>
+<div class="col-xs-4 text-center">
+  <a class="tab" data-target="#mappy">
+    <ul class="list-unstyled text-center">
+     <li><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/>
+      <line x1="8" y1="2" x2="8" y2="18"/>
+      <line x1="16" y1="6" x2="16" y2="22"/>
+    </svg></li>
+    <li> MAP</li>
+  </a>
+</ul>
+
+</div>
+<div class="col-xs-4 right">
+  <a class="tab" data-target="#memories">
+    <ul class="list-unstyled text-center">
+     <li><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg></li>
+    <li>MEMORIES</li></a>
+  </ul>
+</div>
+</div>
+
+
+
+
+<%#= link_to "", edit_team_path(@team), class: "fa fa-pencil edit-button", style: "top: 28px;
+position: relative;
+right: -7px; color: grey; width: 10px", method: :get %>
+
+<%#= @team.city.name %> <%#= link_to "", city_path(@team.city), class: "fa fa-info-circle edit-button", style: "color: grey;", method: :get %>
+<%#= link_to "", city_members_path(@team.city), class: "fa fa-thermometer-full  edit-button", style: "color: grey;", method: :get %>
+
+
+</div>
+
+
+<% content_for(:after_js) do %>
+<%= javascript_tag do %>
+$(document).ready(function(){
+$('ul.tabs').tabs();
+});
+
+$('a[data-target="#mappy"]').on('shown.bs.tab', function (e) {
+google.maps.event.trigger(map, 'resize');
+});
+$('a[data-target="#mappy"]').on('hidden.bs.tab', function (e) {
+google.maps.event.trigger(map, 'resize');
+});
+<% end %>
+<% end %>
+

@@ -1,0 +1,55 @@
+
+
+<% if member.team.present? %>
+
+<%# if member.team.end_date.to_date > Date.today %>
+<%# else %>
+<%# end %>
+
+<%# if member.team.team_picture.present? %>
+<%#= cl_image_tag member.team.team_picture, class: "picture-card" %>
+<%# else %>
+<%#= cl_image_tag("default_fkhyps.png", class: "picture-card") %>
+<%# end %>
+<% if policy(member.team).show? %>
+<% if member.team.city.present? %>
+<div class="content">
+  <div class="row card-challenge">
+    <% if member.team.team_picture.present? %>
+    <div class="card-picture" style="background-image: url('<%= cl_image_path member.team.city.picture %>');"></div>
+    <% else %>
+    <div class="card-picture" style="background-image: url('<%= image_path "tripin-brussels.png" %>');"></div>
+    <% end %>
+    <div class="card-title"><%= member.team.city.name %></div>
+    <% if policy(member.team).destroy? %>
+    <%= link_to team_path(member.team), method: :delete, class: "card-link" do %>
+    <div class="card-score text-center"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="3 6 5 6 21 6"/>
+      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+      <line x1="10" y1="11" x2="10" y2="17"/>
+      <line x1="14" y1="11" x2="14" y2="17"/>
+    </svg>
+  </div>
+  <% end %>
+  <% end %>
+  <h3>From <%= member.team.start_date.strftime("%d")%> to <%= member.team.end_date.strftime("%d %B") %></h3>
+  <%= link_to "", team_path(member.team.id) , class: "card-link" %>
+</div>
+</div>
+
+
+   <!--  <li>From <%#= member.team.start_date.strftime("%d")%> to
+   <%#= member.team.end_date.strftime("%d %B") %></li> -->
+   <%#= member.team.score %>
+   <% end %>
+
+   <% end %>
+
+   <%# if member.team.end_date.to_date > Date.today %>
+   <%# else %>
+   <%# end %>
+
+
+   <% end %>
+
+

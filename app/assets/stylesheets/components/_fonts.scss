@@ -1,0 +1,121 @@
+.homehead {
+  font-family: $header-font;
+  font-weight: 600;
+  font-size: 46px;
+  line-height: 53px;
+  letter-spacing: 0px;
+  color: #333333;
+}
+h1 {
+  font-family: $header-font;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 27px;
+  letter-spacing: 0px;
+  color: #143673;
+}
+
+.sub-head {
+  font-size: 14px;
+  line-height: 10px;
+  font-weight: 300;
+  opacity: 0.5;
+}
+
+h2 {
+  font-weight: 300;
+  font-size: 10px;
+  line-height: 15px;
+  letter-spacing: 0px;
+  opacity: 0.6;
+  color: #143673;
+}
+
+h3 {
+  font-family: $header-font;
+  color: #343851;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 0px;
+  letter-spacing: 0px;
+  opacity: 0.8;
+}
+
+h4 {
+  font-family: $header-font;
+  color: black;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 0px;
+  letter-spacing: 0px;
+  opacity: 0.8;
+}
+
+h5 {
+  font-size: 19px;
+  line-height: 28.8px;
+  font-weight: 600;
+}
+
+h6 {
+  font-family: $header-font;
+  color: #343851;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 28.8px;
+  letter-spacing: 0px;
+  opacity: 0.8;
+}
+
+p {
+  font-family: $header-font;
+  color: black;
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 20px;
+  letter-spacing: 0px;
+  opacity: 0.8;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.bigfont {
+  a {
+    font-size: 50px;
+    letter-spacing: 1px;
+    line-height: 60px;
+    font-weight: 600;
+    color: $middleblue;
+  }
+}
+
+.biggerfont {
+  a {
+    font-size: 36px;
+    letter-spacing: 1px;
+    line-height: 44px;
+    font-weight: 600;
+    color: $middleblue;
+  }
+}
+
+.stroked  {
+  text-decoration: line-through;
+}
+
+#info {
+  hr {
+    border-top: 1px solid $gray;
+    opacity: 0.5;
+  }
+}
+
+.title {
+  color: white;
+  padding-left: 20px;
+}

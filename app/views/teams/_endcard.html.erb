@@ -1,0 +1,23 @@
+<div class="text-center">
+  <% if @team.start_date.to_date > Date.today %>
+  <div class="popup">
+   Your trip is in <%= countdown = (@team.start_date.to_date - Date.today).to_i %> days.
+   You can’t see your challenges yet.
+   Go look at the sheet, we prepared for you to start your trip smoothly !
+   <div class="btn-main pushabit">CHEATSHEET</div>
+ </div>
+ <%elsif @team.in_trip? %>
+ <div class="nothing">
+ </div>
+ <% else %>
+ <div class="popup">
+  Your trip ended. Go see all the memories you made during your travels.
+  Don’t hesitate to share them !
+  <div class="pushabit">
+    <%= link_to "MEMORIES", team_team_answers_path(@team), class: "btn-main" %>
+  </div>
+</div>
+<% end %>
+
+
+</div>

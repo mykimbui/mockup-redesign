@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 blue-bg">
+      <div class="row abitpads">
+        <div class="col-xs-4 right">
+          <%= link_to user_path(current_user) do %>
+          <% if current_user.facebook_picture_url.nil? %>
+          <% unless current_user.profile_picture.nil?  %>
+          <% if current_user.profile_picture.present? %>
+          <%= cl_image_tag current_user.profile_picture, class: "avatar-profile", crop: :fill %>
+          <% else %>
+          <%= image_tag("default.png", class: "avatar-profile") %>
+          <% end %>
+          <% end %>
+          <%else %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar-profile", crop: :fill %>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="col-xs-8 ">
+          <ul class="list-inline profile liltop">
+            <li><%= current_user.first_name.capitalize %></li>
+            <li class="profile-inline"><%= current_user.last_name.capitalize %></li>
+            <li class="little-dates"><%= current_user.user_score %></li>
+          </ul>
+          <%= link_to "Edit profile", edit_user_path(current_user), method: :get, class: "profile opacity" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="content">
+  <div class="row toppie middlemargin">
+    <% if current_user.members.count > 0 %>
+    <% current_user.members.each do |member| %>
+    <div class="col-xs-12 col-sm-3">
+      <%= render "card", member: member %>
+    </div>
+    <%end %>
+    <% else %>
+    <div class="text-center content toppadding">
+      <h6>No trips yet !</h6>
+      <p style="padding: 0 30px;"> Once you start a trip, all your adventures will live here.</p>
+    </div>
+    <% end %>
+  </div>
+  <div id="bottom" class="bottommenup text-center">
+    <%= link_to "START A NEW TRIP", new_team_path, class: 'btn-main' %>
+  </div>
+</div>

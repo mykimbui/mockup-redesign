@@ -1,0 +1,62 @@
+<%= link_to team_path(@team), class: "upthere" do %>
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#143673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <polyline points="15 18 9 12 15 6"/>
+</svg>
+<% end %>
+
+<% if @challenge.picture.present? %>
+<div class="banner" style="background-image: url( '<%= cl_image_path @challenge.picture %>" %>' );"></div>
+<% else %>
+<div class="banner" style="background-image: url( '<%= image_path "https://placeholdit.co//i/555x175?bg=cccccc" %>' );"></div>
+<% end %>
+
+<div class="content whitening">
+  <div class="row">
+    <div class="col-xs-12 headline text-center">
+      <h1><%= @challenge.title %></h1>
+      <div class="sub-head"><%= @challenge.score %> Points</div>
+    </div>
+  </div>
+  <div class="row challengeshow tabs">
+    <div class="col-xs-4">
+      <a class="tab text-center" data-target="#info"><h3>INFO</h3></a></div>
+      <div class="col-xs-4">
+        <a class="tab text-center active" data-target="#challenge"><h3>CHALLENGE</h3></a></div>
+        <div class="col-xs-4">
+          <a class="tab text-center" data-target="#mapppy"><h3>MAP</h3></a>
+        </div></div>
+      </div>
+
+      <%= render "admin" %>
+
+
+      <div class="content">
+        <div class="tab-content" id="challenge">
+          <%= render "question" %>
+        </div>
+      </div>
+      <div class="tab-content hidden" id="mapppy">
+        <%= render "mapshow" %>
+      </div>
+      <div class="content">
+        <div class="tab-content hidden" id="info">
+          <%= render "info" %>
+        </div>
+      </div>
+
+
+
+      <% content_for(:after_js) do %>
+      <%= javascript_tag do %>
+      $(document).ready(function(){
+      $('tabs').tabs();
+    });
+
+    $('a[data-target="#mapppy"]').on('shown.bs.tab', function (e) {
+    google.maps.event.trigger(map, 'resize');
+  });
+  $('a[data-target="#mapppy"]').on('hidden.bs.tab', function (e) {
+  google.maps.event.trigger(map, 'resize');
+});
+<% end %>
+<% end %>

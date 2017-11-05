@@ -1,0 +1,46 @@
+<div class="normalpadding">
+  <div class="lilpad">
+    <div class="text-home"><%= @challenge.description %></div>
+  </div>
+  <a id="hint"><p class="hinted">Want a hint ?</p></a>
+  <div class="hint">
+   <p><%= @challenge.hint %></p>
+ </div>
+ <div class="row input-things">
+  <% if @answer.not_completed? %>
+  <div class= "alert alert-warning">Wrong answer</div>
+  <% end %>
+  <div class="needlilspace styled-input-white text-center">
+    <%= simple_form_for [@team, @challenge, @answer], defaults: { input_html: { class: 'input-container' } } do |f| %>
+    <%= f.error_notification %>
+    <% if @challenge.answer_text? %>
+    <div class="pushtotop">
+      <%= f.input :text, input_html: {value: @answer.text}, label: 'Type your answer', wrapper: :p_wrapper, wrapper_html: {class: "animation animation-color"} %>
+    </div>
+    <% elsif @challenge.answer_picture? %>
+    <%= f.input :picture, label: 'Take a picture', label_html: { class: "btn-picture"} %>
+    <%= f.input :picture_cache, as: :hidden %>
+    <% elsif @challenge.answer_auto? %>
+    <div class="bottoms-up">
+      <%= f.input :text, label: false,
+      collection: bad_answers(@challenge),
+      include_blank: "-- Pick an answer --",
+      selected: @answer.text,
+      input_html: { class: "styled-input-white disable-form-control" } %>
+    </div>
+    <% else @challenge.answer_both? %>
+    <div class="pushtothetop">
+      <%= f.input :text, label: 'Your answer', wrapper: :p_wrapper %>
+    </div>
+    <%= f.input :picture, label: 'Send picture' %>
+    <%= f.input :picture_cache, as: :hidden %>
+    <% end %>
+  </div>
+</div>
+<div class="bigmargin"></div>
+
+</div>
+<div class="row text-center bottommenupquestion" id="bottom">
+  <%= f.button :submit,'SUBMIT ANSWER', class: "btn-main" %>
+  <% end %>
+</div>

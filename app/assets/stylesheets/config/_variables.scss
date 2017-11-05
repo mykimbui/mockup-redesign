@@ -1,0 +1,45 @@
+/* -------------------------------------
+ * Fonts
+ * ------------------------------------- */
+// Google fonts
+@import url('https://fonts.googleapis.com/css?family=Amiko');
+@import url('https://fonts.googleapis.com/css?family=Heebo');
+@import url('https://fonts.googleapis.com/css?family=Cabin');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+
+$base-font: 'Cabin', sans-serif;
+$header-font:'Roboto', sans-serif;
+// Local fonts (uncomment following lines)
+// @font-face {
+//   font-family: "Font Name";
+//   src: font-url('FontFile.eot');
+//   src: font-url('FontFile.eot?#iefix') format('embedded-opentype'),
+//        font-url('FontFile.woff') format('woff'),
+//        font-url('FontFile.ttf') format('truetype')
+// }
+// $my-font: "Font Name";
+
+// Font-size and line-height
+$base-size: 12px;
+$base-height: 1;
+
+/* -------------------------------------
+ * Colors
+ * ------------------------------------- */
+// Scheme
+$brand-color: #D23333;
+
+$pink: #FF477A;
+$lightgray: #F7F6F6;
+$lightblue: #3E7EFF;
+$blue: #063577;
+$gray: #e2e2e2;
+$darkblue: #303e47;
+$middleblue: #143673;
+
+
+$red: #EE5F5B;
+$yellow: #FDB631;
+$orange: #E67E22;
+$green: #32B796;

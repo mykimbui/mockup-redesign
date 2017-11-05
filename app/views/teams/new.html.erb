@@ -1,0 +1,70 @@
+<div class="content createanew">
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-sm-offset-4">
+
+      <div class="tab-content" id="where">
+        <ul class="list-inline">
+          <li><p>QUESTION 1</p></li>
+          <li><p class="opacity">/ 3</p></li>
+        </ul>
+        <h1>Where do you want to go ?</h1>
+        <div class="padded styled-input">
+          <%= simple_form_for @team, defaults: { input_html: { class: 'input-container' } } do |f| %>
+          <%= f.input :city_id, collection: City.all, label: false, input_html: { class: "disable-form-control" }  %>
+        </div>
+        <div id="bottom" class="flexing paddened">
+          <ul class="list-inline">
+            <li><div class="circleon circle"></div></li>
+            <li><div class="circle"></div></li>
+            <li><div class="circle"></div></li>
+          </ul>
+          <a class="tab active btn-main text-center" data-target="#when">CONFIRM</a>
+        </div></div>
+
+        <div class="tab-content hidden" id="when">
+          <ul class="list-inline">
+            <li><p>QUESTION 2</p></li>
+            <li><p class="opacity">/ 3</p></li>
+          </ul>
+          <h1>When are you going ?</h1>
+          <div class="padded styled-input">
+            <%= f.input :start_date, :as => :date_picker, placeholder: "Beginning of your trip", label: false, input_html: { class: "disable-form-control" } %>
+            <%= f.input :end_date, :as => :date_picker, placeholder: "End of your trip", label: false, input_html: { class: "disable-form-control" } %>
+          </div>
+          <div id="bottom" class="flexing paddened">
+            <ul class="list-inline">
+              <li><div class="circle"></div></li>
+              <li><div class="circleon circle"></div></li>
+              <li><div class="circle"></div></li>
+            </ul>
+
+            <a class="tab btn-main" data-target="#who">CONFIRM</a>
+          </div></div>
+
+          <%#= f.input :title, placeholder: "Choose a file", label: 'Team name', wrapper: :p_wrapper%>
+          <%#= f.input :team_picture, label: 'Choose a team picture', label_html: { class: "btn-medium", style: "font-weight: normal !important"} %>
+          <%#= f.input :team_picture_cache, as: :hidden %>
+
+          <div class="tab-content hidden" id="who">
+            <ul class="list-inline">
+              <li><p>QUESTION 3</p></li>
+              <li><p class="opacity">/ 3</p></li>
+            </ul>
+
+            <h1>Invite your travel buddies</h1>
+            <h2>Add their email adresses, they will get an invitation!</h2>
+            <div id="bottom" class="flexing paddened">
+              <ul class="list-inline">
+                <li><div class="circle"></div></li>
+                <li><div class="circle"></div></li>
+                <li><div class="circleon circle"></div></li>
+              </ul>
+              <%= f.submit "CONFIRM", class: "btn-main" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% content_for(:after_js) do %>
+    <% end %>

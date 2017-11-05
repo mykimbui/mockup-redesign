@@ -1,0 +1,21 @@
+<%#= link_to '', team_path(@team), class: "fa fa-times fa-lg cross-challenge", style: "color: #484846;" %>
+<%# if @team_challenges_not_answered.present? %>
+ <div class="tab-content" id="ongoing">
+  <% @team_challenges_not_answered.each do |team_challenge| %>
+    <%= render "card", team_challenge: team_challenge %>
+  <% end %>
+  <% @team_challenges_not_completed.each do |team_challenge| %>
+    <%= render "card", team_challenge: team_challenge %>
+  <% end %>
+  <% @team_challenges_pending.each do |team_challenge| %>
+    <%= render "card", team_challenge: team_challenge %>
+  <% end %>
+
+  </div>
+   <div class="tab-content hidden" id="completed">
+
+  <% @team_challenges_completed.each do |team_challenge| %>
+    <%= render "card", team_challenge: team_challenge %>
+  <% end %>
+  </div>
+<%# end %>

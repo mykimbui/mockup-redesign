@@ -1,0 +1,19 @@
+<div class="container">
+
+  <h3>Edit your profile</h3>
+
+  <%= simple_form_for @user, url: user_path do |u| %>
+    <%= u.input :first_name, placeholder: "Your first name." %>
+    <%= u.input :last_name, placeholder: "Your last name." %>
+    <%= u.input :address, placeholder: "Your address." %>
+    <%= u.input :profile_picture %>
+    <%= u.input :profile_picture_cache, as: :hidden %>
+    <%= u.submit %>
+
+  <% end %>
+
+  <%= link_to 'Go Back', user_path(@user) %>
+
+</div>
+<br>
+<br>

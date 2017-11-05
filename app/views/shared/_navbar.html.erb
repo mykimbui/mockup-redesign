@@ -1,0 +1,190 @@
+<div class="navbar-tripin navbar-tripin-fixed">
+  <%= link_to root_path, class: "navbar-tripin navbar-tripin-fixed-brand" do %>
+  <% if @team.present? && @challenge.present? %>
+  <div class="smaller padss"><%= render "shared/tripinlogo" unless current_page?(team_challenge_path(@team, @challenge)) || current_page?(root_path) %></div>
+  <% end %>
+  <% end %>
+  <!-- Right Navigation -->
+  <div class="navbar-right hidden-xs hidden-sm">
+    <!-- Different navigation if login or not -->
+    <% if current_user.present? %>
+    <% if user_signed_in? %>
+    <!-- Profile picture and dropdown -->
+    <div class="navbar-item">
+      <% if current_user.profile_picture.present? %>
+      <%= image_tag current_user.profile_picture, class: "avatar", :onclick => "openNav()" %>
+      <% else %>
+      <%= image_tag ("default.png"), class: "avatar", :onclick => "openNav()" %>
+
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"></a>
+        <% end %>
+
+        <ul class="overlay-content">
+          <div class="row bigbigspace">
+            <div class="col-xs-2">
+              <%= link_to user_path(current_user) do %>
+              <% if current_user.facebook_picture_url.nil? %>
+              <% unless current_user.profile_picture.nil?  %>
+              <% if current_user.profile_picture.present? %>
+              <%= cl_image_tag current_user.profile_picture, class: "avatar-nav", crop: :fill %>
+              <% else %>
+              <%= image_tag("default.png", class: "avatar-nav") %>
+              <% end %>
+              <% end %>
+              <%else %>
+              <%= image_tag current_user.facebook_picture_url, class: "avatar-nav", crop: :fill %>
+              <% end %>
+              <% end %>
+            </div>
+            <div class="col-xs-10">
+              <ul class="list-inline profile liltop">
+                <li><%= current_user.first_name.capitalize %></li>
+                <li class="profile-inline"><%= current_user.last_name.capitalize %></li>
+                <li class="little-dates"><%= current_user.user_score %></li>
+              </ul>
+              <%= link_to destroy_user_session_path, class: "profile opacity",  method: :delete do %>
+              <%= t(".sign_out", default: "Log out") %>
+              <% end %>
+            </div>
+          </div>
+
+
+          <li class="little-title">MY TRIPS</li>
+          <ul class="cities yes">
+            <% current_user.teams.each do |t| %>
+            <% if t.city.present? %>
+            <% if t.in_trip? %>
+            <li> <ul class="list-inline"><li><%= link_to t.city.name, team_path(t), method: :get %></li>
+            <li class="little-dates"><%= t.start_date.strftime("%d")%> <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+              <%= t.end_date.strftime("%d-%m") %></li></ul>
+            </li>
+            <% end %>
+            <% end %>
+            <% end %>
+          </ul>
+          <li class="cities"><%= link_to "New trip", root_path %></li>
+          <li><hr align="left" width="10%" opacity="0.5"></li>
+          <li>About</li>
+          <li>Contact us</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <% else %>
+  <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "loginpls" %>
+  <% end %>
+  <% end %>
+
+  <!-- Mobile friendly -->
+  <% if current_user.present? %>
+  <% if user_signed_in? %>
+  <div class="navbar-item hidden-md hidden-lg">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#143673
+    " stroke-width="2" stroke-linecap="round" stroke-linejoin="round" onclick="openlilNav()">
+    <line x1="3" y1="12" x2="21" y2="12"/>
+    <line x1="3" y1="6" x2="21" y2="6"/>
+    <line x1="3" y1="18" x2="21" y2="18"/>
+  </svg>
+  <div id="mylilNav" class="verticaloverlay">
+
+    <a href="javascript:void(0)" class="closebtn" onclick="closelilNav()"></a>
+    <div class="closingcross">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#143673" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"/>
+        <line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </div>
+    <ul class="overlay-content">
+
+      <div class="row bigbigspace">
+        <div class="col-xs-2">
+          <%= link_to user_path(current_user) do %>
+          <% if current_user.facebook_picture_url.nil? %>
+          <% unless current_user.profile_picture.nil?  %>
+          <% if current_user.profile_picture.present? %>
+          <%= cl_image_tag current_user.profile_picture, class: "avatar-nav", crop: :fill %>
+          <% else %>
+          <%= image_tag("default.png", class: "avatar-nav") %>
+          <% end %>
+          <% end %>
+          <%else %>
+          <%= image_tag current_user.facebook_picture_url, class: "avatar-nav", crop: :fill %>
+          <% end %>
+          <% end %>
+        </div>
+        <div class="col-xs-10">
+          <ul class="list-inline profile liltop">
+            <li><%= current_user.first_name.capitalize %></li>
+            <li class="profile-inline"><%= current_user.last_name.capitalize %></li>
+            <li class="little-dates"><%= current_user.user_score %></li>
+          </ul>
+          <%= link_to destroy_user_session_path, class: "profile opacity",  method: :delete do %>
+          <%= t(".sign_out", default: "Log out") %>
+          <% end %>
+        </div>
+      </div>
+      <li class="little-title">MY TRIPS</li>
+      <ul class="cities yes">
+        <% current_user.teams.each do |t| %>
+        <% if t.in_trip? %>
+        <% if t.city.present? %>
+        <li> <ul class="list-inline"><li><%= link_to t.city.name, team_path(t), method: :get %></li>
+        <li class="little-dates"><%= t.start_date.strftime("%d")%> <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+          <%= t.end_date.strftime("%d-%m") %></li></ul>
+        </li>
+        <% end %>
+        <% end %>
+        <% end %>
+      </ul>
+      <li class="cities"><%= link_to "New trip", root_path %></li>
+      <li><hr class="opacity" align="left" width="10%"></li>
+      <%#= link_to "Edit my profile", edit_user_path(current_user)%>
+      <li>About</li>
+      <li>Contact us</li>
+<!--           <li><ul class="list-inline">
+            <li><i class="fa fa-facebook" aria-hidden="true"></i></li>
+            <li><i class="fa fa-instagram" aria-hidden="true"></i></li>
+            <li><i class="fa fa-youtube" aria-hidden="true"></i></li>
+            <li><i class="fa fa-twitter" aria-hidden="true"></i></li>
+          </ul></li> -->
+        </ul>
+      </div>
+    </div>
+
+    <% else %>
+    <div class="navbar-item hidden-md hidden-lg">
+
+    <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "loginpls", style: "z-index:15;" %>
+
+<!--       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333333
+      " stroke-width="2" stroke-linecap="round" stroke-linejoin="round" onclick="openlilNav()">
+      <line x1="3" y1="12" x2="21" y2="12"/>
+      <line x1="3" y1="6" x2="21" y2="6"/>
+      <line x1="3" y1="18" x2="21" y2="18"/>
+    </svg>
+
+    <div id="mylilNav" class="verticaloverlay">
+      <a href="javascript:void(0)" class="closebtn" onclick="closelilNav()"></a>
+      <div class="closingcross">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#333333" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </div>
+      <ul class="overlay-content">
+        <div class="row bigbigspace">
+          <li></li>
+          <li><hr class="opacity" align="left" width="10%"></li>
+          <li>About</li>
+          <li>Contact us</li>
+        </div>
+      </ul>
+    </div> -->
+  </div>
+  <% end %>
+
+  <% end %>
+
+</div>
+</div>
